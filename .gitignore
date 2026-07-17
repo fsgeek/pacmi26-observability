@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+
+# uv
+.uv/
+
+# OS
+.DS_Store
+
+# Note: figures/ outputs are committed for convenience (they regenerate via `make figures`).
+
+# lockfile: regenerate with `uv lock` (removed here; the committed one was the empty uv-init stub)
+uv.lock

@@ -1,0 +1,268 @@
+{
+  "query": "What shape is wombat scat?",
+  "expected": "cube",
+  "category": "knowable_weird",
+  "note": "Generated answer is a fabrication; wombat scat is distinctively cube-shaped.",
+  "source_model": "allenai/olmo-3-7b-instruct",
+  "source_trace": "epistemic_trace_demo_20260208_184656.json (traces[1]) in the full research record",
+  "tokens": [
+    {
+      "token_text": "W",
+      "entropy": 0.0186,
+      "logprob": -0.0022,
+      "top5_mass": 0.9998
+    },
+    {
+      "token_text": "ombat",
+      "entropy": 0.2509,
+      "logprob": -0.0546,
+      "top5_mass": 0.9988
+    },
+    {
+      "token_text": " sc",
+      "entropy": 0.0153,
+      "logprob": -0.0015,
+      "top5_mass": 0.9998
+    },
+    {
+      "token_text": "at",
+      "entropy": 0.0039,
+      "logprob": -0.0004,
+      "top5_mass": 1.0
+    },
+    {
+      "token_text": " is",
+      "entropy": 0.7434,
+      "logprob": -0.3665,
+      "top5_mass": 0.9985
+    },
+    {
+      "token_text": " typically",
+      "entropy": 0.8755,
+      "logprob": -0.3716,
+      "top5_mass": 0.9923
+    },
+    {
+      "token_text": " cylindrical",
+      "entropy": 1.645,
+      "logprob": -0.4391,
+      "top5_mass": 0.8866
+    },
+    {
+      "token_text": " or",
+      "entropy": 1.1232,
+      "logprob": -0.602,
+      "top5_mass": 0.9842
+    },
+    {
+      "token_text": " sausage",
+      "entropy": 2.4053,
+      "logprob": -0.6781,
+      "top5_mass": 0.7977
+    },
+    {
+      "token_text": "-shaped",
+      "entropy": 0.1383,
+      "logprob": -0.0313,
+      "top5_mass": 1.0
+    },
+    {
+      "token_text": ".",
+      "entropy": 0.2624,
+      "logprob": -0.0567,
+      "top5_mass": 0.997
+    },
+    {
+      "token_text": " This",
+      "entropy": 0.5756,
+      "logprob": -0.2297,
+      "top5_mass": 0.9964
+    },
+    {
+      "token_text": " form",
+      "entropy": 1.1333,
+      "logprob": -0.5536,
+      "top5_mass": 0.9642
+    },
+    {
+      "token_text": " helps",
+      "entropy": 0.3496,
+      "logprob": -0.0765,
+      "top5_mass": 0.9974
+    },
+    {
+      "token_text": " the",
+      "entropy": 0.6319,
+      "logprob": -0.1634,
+      "top5_mass": 0.9878
+    },
+    {
+      "token_text": " sc",
+      "entropy": 0.759,
+      "logprob": -0.2214,
+      "top5_mass": 0.9782
+    },
+    {
+      "token_text": "at",
+      "entropy": 0.0998,
+      "logprob": -0.0138,
+      "top5_mass": 0.9979
+    },
+    {
+      "token_text": " to",
+      "entropy": 1.4896,
+      "logprob": -0.4042,
+      "top5_mass": 0.9107
+    },
+    {
+      "token_text": " be",
+      "entropy": 0.2972,
+      "logprob": -0.049,
+      "top5_mass": 0.9923
+    },
+    {
+      "token_text": " easily",
+      "entropy": 0.6316,
+      "logprob": -0.1304,
+      "top5_mass": 0.9798
+    },
+    {
+      "token_text": " transported",
+      "entropy": 2.6771,
+      "logprob": -1.3823,
+      "top5_mass": 0.7558
+    },
+    {
+      "token_text": " by",
+      "entropy": 1.6336,
+      "logprob": -0.6979,
+      "top5_mass": 0.9157
+    },
+    {
+      "token_text": " wind",
+      "entropy": 0.7215,
+      "logprob": -0.1832,
+      "top5_mass": 0.9799
+    },
+    {
+      "token_text": " or",
+      "entropy": 1.4265,
+      "logprob": -0.6744,
+      "top5_mass": 0.966
+    },
+    {
+      "token_text": " through",
+      "entropy": 3.7408,
+      "logprob": -1.7557,
+      "top5_mass": 0.5994
+    },
+    {
+      "token_text": " the",
+      "entropy": 0.8309,
+      "logprob": -0.1156,
+      "top5_mass": 0.9405
+    },
+    {
+      "token_text": " soil",
+      "entropy": 4.3149,
+      "logprob": -1.2763,
+      "top5_mass": 0.5848
+    },
+    {
+      "token_text": ",",
+      "entropy": 1.1926,
+      "logprob": -0.8204,
+      "top5_mass": 0.9808
+    },
+    {
+      "token_text": " aiding",
+      "entropy": 1.7095,
+      "logprob": -0.8259,
+      "top5_mass": 0.9322
+    },
+    {
+      "token_text": " in",
+      "entropy": 0.0267,
+      "logprob": -0.0029,
+      "top5_mass": 0.9994
+    },
+    {
+      "token_text": " dispers",
+      "entropy": 1.1554,
+      "logprob": -0.6348,
+      "top5_mass": 0.9648
+    },
+    {
+      "token_text": "al",
+      "entropy": 0.0171,
+      "logprob": -0.0024,
+      "top5_mass": 1.0
+    },
+    {
+      "token_text": " and",
+      "entropy": 0.9523,
+      "logprob": -0.2622,
+      "top5_mass": 0.9633
+    },
+    {
+      "token_text": " preventing",
+      "entropy": 2.1853,
+      "logprob": -0.6082,
+      "top5_mass": 0.8088
+    },
+    {
+      "token_text": " it",
+      "entropy": 2.667,
+      "logprob": -0.9289,
+      "top5_mass": 0.8223
+    },
+    {
+      "token_text": " from",
+      "entropy": 0.0029,
+      "logprob": -0.0002,
+      "top5_mass": 0.9999
+    },
+    {
+      "token_text": " being",
+      "entropy": 1.8471,
+      "logprob": -1.1071,
+      "top5_mass": 0.9161
+    },
+    {
+      "token_text": " easily",
+      "entropy": 3.6167,
+      "logprob": -1.1113,
+      "top5_mass": 0.5733
+    },
+    {
+      "token_text": " eaten",
+      "entropy": 3.7348,
+      "logprob": -1.9187,
+      "top5_mass": 0.5253
+    },
+    {
+      "token_text": " by",
+      "entropy": 0.1362,
+      "logprob": -0.0255,
+      "top5_mass": 0.9999
+    },
+    {
+      "token_text": " predators",
+      "entropy": 0.2422,
+      "logprob": -0.0324,
+      "top5_mass": 0.9894
+    },
+    {
+      "token_text": ".",
+      "entropy": 0.7805,
+      "logprob": -0.4989,
+      "top5_mass": 0.9964
+    },
+    {
+      "token_text": "<|endoftext|>",
+      "entropy": 0.2666,
+      "logprob": -0.0493,
+      "top5_mass": 0.9938
+    }
+  ]
+}

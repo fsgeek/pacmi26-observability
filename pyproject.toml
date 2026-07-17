@@ -1,0 +1,24 @@
+[project]
+name = "pacmi26-observability"
+version = "1.0.0"
+description = "State-object observability interface for LLM epistemic-state extraction (PACMI 2026 artifact)"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+
+# Figure-regeneration path (`make figures`): laptop, no model weights.
+dependencies = [
+    "matplotlib>=3.7",
+    "numpy>=1.24",
+    "pandas>=2.0",
+]
+
+# Trace-regeneration path (`make traces`): re-runs the model, needs weights/GPU.
+[project.optional-dependencies]
+traces = [
+    "torch>=2.0",
+    "transformers>=4.40",
+]
+
+[project.urls]
+"Full research record" = "https://doi.org/10.5281/zenodo.21314137"
