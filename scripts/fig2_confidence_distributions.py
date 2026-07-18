@@ -68,7 +68,7 @@ def main() -> None:
         ax.set_xlabel("Self-Reported Confidence", fontsize=LABEL_SIZE)
         ax.tick_params(axis='both', labelsize=TICK_SIZE)
         ax.set_ylabel("Density", fontsize=LABEL_SIZE)
-        ax.legend(fontsize=LEGEND_SIZE)
+        ax.legend(fontsize=LEGEND_SIZE, loc="upper center")
 
     plt.tight_layout()
     OUT_STEM.parent.mkdir(exist_ok=True)

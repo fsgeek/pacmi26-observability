@@ -156,24 +156,25 @@ def main() -> None:
         print(f"  {name:<22s} " + "  ".join(f"{v:>5.1f}" for v in vals))
 
     styles = {
-        "No judge":             {"color": "gray", "marker": "s", "ls": "--", "lw": 1.5},
-        "Text-guided (length)": {"color": "#dc267f", "marker": "o", "ls": "-",  "lw": 2},
-        "State-object-guided":  {"color": "#785ef0", "marker": "^", "ls": "-",  "lw": 2},
-        "Composed":             {"color": "#648fff", "marker": "D", "ls": "-.", "lw": 2},
+        "No judge":             {"color": "gray", "marker": "s", "ls": "--", "lw": 1.5, "label": "No judge"},
+        "Text-guided (length)": {"color": "#dc267f", "marker": "o", "ls": "-",  "lw": 2, "label": "Text-guided"},
+        "State-object-guided":  {"color": "#785ef0", "marker": "^", "ls": "-",  "lw": 2, "label": "Tensor"},
+        "Composed":             {"color": "#648fff", "marker": "D", "ls": "-.", "lw": 2, "label": "Composed"},
     }
 
     fig, ax = plt.subplots(1, 1, figsize=(FIG_W_SIZE, FIG_H_SIZE))
     for name, vals in data.items():
         s = styles[name]
-        ax.plot(budgets, vals, label=name, marker=s["marker"], linestyle=s["ls"],
+        ax.plot(budgets, vals, label=s["label"], marker=s["marker"], linestyle=s["ls"],
                 linewidth=s["lw"], color=s["color"], markersize=8)
 
     # annotate the state-object vs text gap
     for i, b in enumerate(budgets):
+        print("Budget:", b)
         so = data["State-object-guided"][i]
         tx = data["Text-guided (length)"][i]
         ax.annotate(f"+{so - tx:.1f}pp", xy=(b, (so + tx) / 2), fontsize=TICK_SIZE,
-                    color="#555555", ha="left", va="center", xytext=(b + 1.5, (so + tx) / 2))
+                    color="black", ha="left", va="center", xytext=(b, (so + tx) / 2))
 
     ax.set_xlabel("Verification Budget (%)", fontsize=LABEL_SIZE)
     ax.set_ylabel("End-to-End Accuracy (%)", fontsize=LABEL_SIZE)
@@ -181,7 +182,7 @@ def main() -> None:
     ax.tick_params(axis='both', labelsize=TICK_SIZE)
     ax.set_xlim(5, 35)
     ax.set_ylim(73, 95)
-    ax.legend(loc="lower right", fontsize=LEGEND_SIZE)
+    ax.legend(loc="upper left", fontsize=LEGEND_SIZE, ncol=2)
     ax.grid(True, alpha=0.3)
     plt.tight_layout()
 
