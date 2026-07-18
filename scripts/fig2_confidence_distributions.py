@@ -19,6 +19,12 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
+LEGEND_SIZE=15
+LABEL_SIZE=18
+TICK_SIZE=15
+FIG_W_SIZE=16
+FIG_H_SIZE=8
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA_FILE = ROOT / "data" / "exp27_bounded_verification_20260206_205725.csv"
 OUT_STEM = ROOT / "figures" / "fig2_confidence_distributions"
@@ -39,12 +45,12 @@ def load_rows():
 def main() -> None:
     rows = load_rows()
 
-    fig, axes = plt.subplots(2, 2, figsize=(10, 8))
+    fig, axes = plt.subplots(2, 2, figsize=(FIG_W_SIZE, FIG_H_SIZE))
     fig.suptitle("Self-Reported Confidence: Knowable vs Unknowable",
-                 fontsize=14, fontweight="bold")
+                 fontsize=LABEL_SIZE, fontweight="bold")
 
-    color_know = "#2166ac"     # blue
-    color_unknow = "#e66101"   # orange
+    color_know = "#fe6100"     # orange
+    color_unknow = "#785ef0"   # purple
     bins = np.linspace(0, 1, 20)
 
     for ax, (label, model_id) in zip(axes.flat, FAMILIES.items()):
@@ -58,10 +64,11 @@ def main() -> None:
         ax.hist(unknow, bins=bins, alpha=0.7, label="Unknowable", color=color_unknow,
                 edgecolor="black", linewidth=0.5, hatch="\\\\", density=True)
 
-        ax.set_title(label, fontsize=12, fontweight="bold")
-        ax.set_xlabel("Self-Reported Confidence", fontsize=10)
-        ax.set_ylabel("Density", fontsize=10)
-        ax.legend(fontsize=9)
+        ax.set_title(label, fontsize=LABEL_SIZE, fontweight="bold")
+        ax.set_xlabel("Self-Reported Confidence", fontsize=LABEL_SIZE)
+        ax.tick_params(axis='both', labelsize=TICK_SIZE)
+        ax.set_ylabel("Density", fontsize=LABEL_SIZE)
+        ax.legend(fontsize=LEGEND_SIZE)
 
     plt.tight_layout()
     OUT_STEM.parent.mkdir(exist_ok=True)

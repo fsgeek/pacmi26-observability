@@ -28,6 +28,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
+LEGEND_SIZE=15
+LABEL_SIZE=18
+TICK_SIZE=15
+FIG_W_SIZE=8
+FIG_H_SIZE=4
+
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "exp27_bounded_verification_20260206_205725.csv"
 DETAILED = ROOT / "data" / "exp27b_detailed_20260206_230203.csv"
@@ -150,13 +156,13 @@ def main() -> None:
         print(f"  {name:<22s} " + "  ".join(f"{v:>5.1f}" for v in vals))
 
     styles = {
-        "No judge":             {"color": "#888888", "marker": "s", "ls": "--", "lw": 1.5},
-        "Text-guided (length)": {"color": "#e66101", "marker": "o", "ls": "-",  "lw": 2},
-        "State-object-guided":  {"color": "#2166ac", "marker": "^", "ls": "-",  "lw": 2},
-        "Composed":             {"color": "#5e3c99", "marker": "D", "ls": "-.", "lw": 2},
+        "No judge":             {"color": "gray", "marker": "s", "ls": "--", "lw": 1.5},
+        "Text-guided (length)": {"color": "#dc267f", "marker": "o", "ls": "-",  "lw": 2},
+        "State-object-guided":  {"color": "#785ef0", "marker": "^", "ls": "-",  "lw": 2},
+        "Composed":             {"color": "#648fff", "marker": "D", "ls": "-.", "lw": 2},
     }
 
-    fig, ax = plt.subplots(1, 1, figsize=(6, 4))
+    fig, ax = plt.subplots(1, 1, figsize=(FIG_W_SIZE, FIG_H_SIZE))
     for name, vals in data.items():
         s = styles[name]
         ax.plot(budgets, vals, label=name, marker=s["marker"], linestyle=s["ls"],
@@ -166,15 +172,16 @@ def main() -> None:
     for i, b in enumerate(budgets):
         so = data["State-object-guided"][i]
         tx = data["Text-guided (length)"][i]
-        ax.annotate(f"+{so - tx:.1f}pp", xy=(b, (so + tx) / 2), fontsize=8,
+        ax.annotate(f"+{so - tx:.1f}pp", xy=(b, (so + tx) / 2), fontsize=TICK_SIZE,
                     color="#555555", ha="left", va="center", xytext=(b + 1.5, (so + tx) / 2))
 
-    ax.set_xlabel("Verification Budget (%)", fontsize=11)
-    ax.set_ylabel("End-to-End Accuracy (%)", fontsize=11)
+    ax.set_xlabel("Verification Budget (%)", fontsize=LABEL_SIZE)
+    ax.set_ylabel("End-to-End Accuracy (%)", fontsize=LABEL_SIZE)
     ax.set_xticks(budgets)
+    ax.tick_params(axis='both', labelsize=TICK_SIZE)
     ax.set_xlim(5, 35)
     ax.set_ylim(73, 95)
-    ax.legend(loc="lower right", fontsize=9)
+    ax.legend(loc="lower right", fontsize=LEGEND_SIZE)
     ax.grid(True, alpha=0.3)
     plt.tight_layout()
 
