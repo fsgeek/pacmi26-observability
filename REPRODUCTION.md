@@ -29,8 +29,17 @@ This figure required the most care; see also
    probabilistic verification calibrated to the 75/80 human evaluation
    (`P(catch fabrication)=0.938`, `P(retrieve answer)=0.95`).
 
-3. **Determinism was verified.** Re-running it produced a CSV byte-identical to
-   the one archived on 2026-02-14. The pipeline is fully deterministic.
+3. **Determinism was verified — then qualified (v1.0.2).** Re-running it produced
+   a CSV byte-identical to the one archived on 2026-02-14, *in the same
+   environment*. It was later found (2026-08-18) that the ranking step used
+   `np.argsort` with its default (unstable) sort, and that numpy 1.x and 2.x
+   break ties differently. The length score has 14 rows tied at the 10% budget
+   boundary and the composed score has 136 (every citation-flagged unknowable
+   scores 1.0), so the length and composed series moved by up to 2.4pp between
+   numpy versions; the entropy series has no ties and never moved. Since v1.0.2
+   the ranking breaks ties **at random within each Monte Carlo trial** (seeded,
+   `np.lexsort((rng.random(n), scores))`), so the reported value is the
+   expectation over tie-breaks and is identical under numpy 1.26 and 2.5.
 
 4. **The three judges were pinned down:**
    - *State-object-guided* ranks by the state object's `mean_entropy`.
@@ -51,12 +60,13 @@ This figure required the most care; see also
    | Series (10/20/30%) | Value |
    |---|---|
    | No judge | 75.8 / 75.8 / 75.8 |
-   | Text-guided (length) | 78.5 / 82.1 / 87.5 |
+   | Text-guided (length) | 78.4 / 82.2 / 87.6 |
    | State-object-guided | 81.7 / 86.8 / 90.9 |
-   | Composed | 80.2 / 87.1 / 91.5 |
+   | Composed | 81.5 / 87.1 / 91.5 |
 
-   These differ from the originally-submitted figure by <1pp per point and change
-   no claim. The paper figure has been updated to match.
+   State-object minus text: +3.3 / +4.6 / +3.3pp. These differ from the
+   originally-submitted figure by <1pp per point and change no claim. The paper
+   figure and text (PACMI camera-ready; arXiv v2) match these values.
 
 ## Figure 1 — entropy trace (rendered from a committed trace)
 

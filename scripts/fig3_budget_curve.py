@@ -101,7 +101,13 @@ def evaluate_realistic(df, score_fn, budget_frac, rng, use_citation=False):
             if cit[i]:
                 scores[i] = 0.0 if df.iloc[i]["is_knowable"] else 1.0
 
-    verify = np.argsort(scores)[-budget:]
+    # Rank by score; break ties at random within each trial (seeded), so the
+    # estimate is the expectation over tie-breaks rather than whatever order
+    # the sort implementation happens to produce (np.argsort's default is not
+    # stable, and numpy 1.x and 2.x break ties differently; the length and
+    # citation scores have many ties, entropy has none).
+    order = np.lexsort((rng.random(len(scores)), scores))
+    verify = order[-budget:]
     corrected = df["is_correct"].values.copy()
     for idx in verify:
         if corrected[idx]:
