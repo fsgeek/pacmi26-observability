@@ -56,7 +56,7 @@ This figure required the most care; see also
    | Composed | 80.2 / 87.1 / 91.5 |
 
    These differ from the originally-submitted figure by <1pp per point and change
-   no claim. The paper figure is being updated to match.
+   no claim. The paper figure has been updated to match.
 
 ## Figure 1 — entropy trace (rendered from a committed trace)
 
